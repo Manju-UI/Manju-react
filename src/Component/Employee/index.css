@@ -1,0 +1,30 @@
+*{
+    width: auto;
+    box-sizing: border-box;
+}
+
+/* index.css */
+
+.card-collection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Items will be spaced evenly between rows */
+  }
+  
+  .card {
+    flex-basis: calc(33.33% - 20px); /* Each card will take up 33.33% width with 20px gutter */
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 992px) {
+    .card {
+      flex-basis: calc(50% - 20px); /* On smaller screens, each card will take up 50% width with 20px gutter */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      flex-basis: calc(100% - 20px); /* On even smaller screens, each card will take up 100% width with 20px gutter */
+    }
+  }
+  
