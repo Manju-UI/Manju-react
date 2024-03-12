@@ -1,0 +1,158 @@
+Skip to content
+ 
+Search…
+All gists
+Back to GitHub
+@rominirani
+rominirani/employees.json
+Created 11 years ago • Report abuse
+Code
+Revisions
+1
+Stars
+7
+Forks
+2
+Clone this repository at &lt;script src=&quot;https://gist.github.com/rominirani/8235702.js&quot;&gt;&lt;/script&gt;
+<script src="https://gist.github.com/rominirani/8235702.js"></script>
+Employees JSON data format for populating the Employee documents in the Search Index
+employees.json
+{
+"Employees" : [
+{
+"userId":"rirani",
+"jobTitleName":"Developer",
+"firstName":"Romin",
+"lastName":"Irani",
+"preferredFullName":"Romin Irani",
+"employeeCode":"E1",
+"region":"CA",
+"phoneNumber":"408-1234567",
+"emailAddress":"romin.k.irani@gmail.com"
+},
+{
+"userId":"nirani",
+"jobTitleName":"Developer",
+"firstName":"Neil",
+"lastName":"Irani",
+"preferredFullName":"Neil Irani",
+"employeeCode":"E2",
+"region":"CA",
+"phoneNumber":"408-1111111",
+"emailAddress":"neilrirani@gmail.com"
+},
+{
+"userId":"thanks",
+"jobTitleName":"Program Directory",
+"firstName":"Tom",
+"lastName":"Hanks",
+"preferredFullName":"Tom Hanks",
+"employeeCode":"E3",
+"region":"CA",
+"phoneNumber":"408-2222222",
+"emailAddress":"tomhanks@gmail.com"
+}
+]
+}
+@meta-pratap-ranawat
+meta-pratap-ranawat commented on Sep 15, 2016
+Hi.. i am new to JSON and trying to access json file. how can we use it in javascript or jQuery?
+
+can you help me how you used employees.json file
+
+@anikethsaha
+anikethsaha commented on Aug 27, 2017
+this may help you
+
+`function loaddetails(){
+            var output=" ";
+           
+            
+            $.getJSON("employee.json",function(response){
+              $.each(response.Employees,function(k,v){
+                   console.log(this);
+                   output+="<tr>"
+                   output+="<td>"+ v.userId +"</td><td>"+ v.jobTitleName+"</td><td>"+ v.region +"</td>"
+                   output+="</tr>";
+                });
+            });
+            output+="</table>"
+            document.getElementById('demo').innerHTML=output;
+        };
+        `
+@650600294
+650600294 commented on Sep 24, 2018 • 
+Change somethings(employee.json):
+[
+{
+"userId":"rirani",
+"jobTitleName":"Developer",
+"firstName":"Romin",
+"lastName":"Irani",
+"preferredFullName":"Romin Irani",
+"employeeCode":"E1",
+"region":"CA",
+"phoneNumber":"408-1234567",
+"emailAddress":"romin.k.irani@gmail.com"
+},
+{
+"userId":"nirani",
+"jobTitleName":"Developer",
+"firstName":"Neil",
+"lastName":"Irani",
+"preferredFullName":"Neil Irani",
+"employeeCode":"E2",
+"region":"CA",
+"phoneNumber":"408-1111111",
+"emailAddress":"neilrirani@gmail.com"
+},
+{
+"userId":"thanks",
+"jobTitleName":"Program Directory",
+"firstName":"Tom",
+"lastName":"Hanks",
+"preferredFullName":"Tom Hanks",
+"employeeCode":"E3",
+"region":"CA",
+"phoneNumber":"408-2222222",
+"emailAddress":"tomhanks@gmail.com"
+}
+] // try this above in https://jsonformatter.curiousconcept.com/#
+`
+
+create an empty html5 file
+1.1. instead of 'function loaddetails()'
+1.2. inside tag head paste the path to the jquery file '<script src="https://code.jquery.com/jquery-3.3.1.js"></script>'
+then paste this after close html and be happy
+ 
+<script type="text/javascript"> $(document).ready(function() { $.getJSON("employees.json", function(data) { var employee_data = ''; //inicializa variavel // add dados em employee_data $.each(data, function(key, value) { employee_data += ''; employee_data += '' + value.userId + ''; employee_data += '' + value.jobTitleName + ''; employee_data += '' + value.region + ''; employee_data += ''; }); //adiciona na #table_id (variavel employee_data) $('#demo').append(employee_data); }); }); </script>
+`
+
+@hisefath
+hisefath commented on May 18, 2020
+Hey thank you for this! :)
+
+@tonyxto
+tonyxto commented on Nov 11, 2021
+Thanks it help sir i used employee file to by my self more time to finish my project on time.
+
+@Tr-reny
+Tr-reny commented on Jul 26, 2022
+thanks for the JSON Resource it has helped me a lot on developing my skills
+
+@Manju-UI
+Comment
+ 
+Leave a comment
+ 
+Footer
+© 2024 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact
+Manage cookies
+Do not share my personal information
