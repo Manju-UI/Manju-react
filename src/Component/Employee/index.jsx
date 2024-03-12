@@ -75,7 +75,7 @@ function EmployeeList() {
       ...updatedEmployees[index],
       teamName: updatedEmployees[index].teamName === team ? "" : team,
     };
-    seEmployee(updatedEmployees);
+    setEmployee(updatedEmployees);
   };
   return (
     <div>
@@ -95,42 +95,43 @@ function EmployeeList() {
         <div className="row ">
           <div className="col ">
             <div className="card-collection ">
-              {employee.map((item, index) => (
-                <div
-                  key={index}
-                  className={`card m-2 px-5 py-3 ${
-                    item.teamName === team ? "selected" : ""
-                  }`}
-                  style={{ cursor: "pointer" }}
-                  onClick={() => handleClick(index)}
-                >
-                  <div className="card-img-top">
-                    <img
-                      style={{ width: "100%" }}
-                      className="rounded-5"
-                      src={item.image}
-                      alt="aaaaaa"
-                    />
-                  </div>
-                  <div className="card-body">
-                    <h5 className="card-title">Full Name : {item.userName}</h5>
-                    <p className="card-text">
-                      Designation : {item.jobTitleName}
-                    </p>
-                    <div className="card-text">
-                      Employee Code : {item.employeeCode}
+            {employee
+                .filter((emp) => emp.teamName === team)
+                .map((item, index) => (
+                  <div
+                    key={index}
+                    className="card m-2 px-5 py-3"
+                    style={{ cursor: "pointer" }}
+                  >
+                    <div className="card-img-top">
+                      <img
+                        style={{ width: "100%" }}
+                        className="rounded-5"
+                        src={item.image}
+                        alt={item.userName}
+                      />
                     </div>
-                    <div className="card-text">
-                      Techstack :{" "}
-                      {item.techstack.map((a, i) => (
-                        <div key={i}>
-                          <h6 className="mx-5">{a}</h6>
-                        </div>
-                      ))}
+                    <div className="card-body">
+                      <h5 className="card-title">
+                        Full Name : {item.userName}
+                      </h5>
+                      <p className="card-text">
+                        Designation : {item.jobTitleName}
+                      </p>
+                      <div className="card-text">
+                        Employee Code : {item.employeeCode}
+                      </div>
+                      <div className="card-text">
+                        Techstack :{" "}
+                        {item.techstack.map((tech, i) => (
+                          <div key={i}>
+                            <h6 className="mx-5">{tech}</h6>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
             </div>
           </div>
         </div>
